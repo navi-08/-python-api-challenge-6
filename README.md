@@ -33,3 +33,47 @@ The scatterplot and regression line suggest that wind speed is relatively consis
 In both hemispheres, the r-values are very low, indicating that latitude is not a significant predictor of wind speed. Other factors, such as local geography and weather patterns, likely play a more substantial role in determining wind speeds in different regions.
 
 Your analysis provides a clear and accurate interpretation of the linear relationships and the limited impact of latitude on wind speed in both hemispheres.
+
+
+
+
+
+**Background
+Weather is constantly changing, but it can be helpful to analyze weather patterns across the globe and uncover trends about why places have the weather they do, such as their distance from the equator. Utilizing Python requests, APIs, and JSON traversals, I uncovered some interesting trends about different cities and the weather they had at the specific time and day of my API request: January 05, 2021.
+
+3 Observations
+1. **Temperature Decreases with Distance from the Equator:** As cities move farther away from the equator, their maximum temperatures decrease gradually. This corresponds with what most people expect since the equator is typically assumed to have warmer and more stable temperatures year-round due to the fact that sunlight hits the Earth's surface from almost directly above.
+
+2. **Wind Speed Doesn't Strongly Correlate with Latitude:** Though there was no strong correlation suggested in the scatter plot for wind speed vs. latitude, it is important to note that the vast majority of cities have wind speeds from 0 to low-20s, with very few cities lying above the 25mph mark.
+
+3. **Cloudiness Varies, But No Strong Correlation with Latitude:** Cloudiness does not appear to have much correlation with latitude. However, there are several cities which show 100% cloudiness and 0% cloudiness. It would be interesting to dive deeper to see which cities reported 0% cloudiness and others which had 100% cloudiness, and see if common regions can be pinpointed to note whether certain regions are generally more cloudy than others.
+
+WeatherPy
+In this example, I created a Python script to visualize the weather of over 500 cities across the world with varying distances from the equator. I utilized a simple Python library and an API Key from OpenWeatherMap to construct representative models of the weather across world cities on January 05, 2021.
+
+For the first part of my analysis, I created a series of scatter plots to showcase the following relationships:
+
+1. Temperature (F) vs. Latitude
+2. Humidity (%) vs. Latitude
+3. Cloudiness (%) vs. Latitude
+4. Wind Speed (mph) vs. Latitude
+
+I then added a simple observation for each scatter plot describing what each plot suggests.
+
+For the second part of my analysis, I ran a linear regression on each relationship listed above after separating the plots by the Northern and Southern Hemispheres.
+
+After each pair of plots, I showed the r-squared value and a description of any relationships I noticed.
+
+The script is in the WeatherPy directory titled "WeatherPy.ipynb", and .pngs of each plot are included in the output_data folder of the WeatherPy directory, along with the city_weather.csv file I conducted my analysis with after cleaning the data I received from the API request.
+
+VacationPy
+For this part of the analysis, I started by creating a heat map that displays the humidity for every city from Part I.
+
+I then narrowed down my DataFrame to find my ideal weather condition and dropped the cities which didn't meet the conditions. My ideal weather conditions are:
+
+1. A maximum temperature equal to or lower than 85 degrees but higher than 72 degrees.
+2. Wind speed being less than 5 mph.
+3. Cloudiness less than or equal to 30%, since blue skies with nice clouds are hard to beat!
+
+
+
